@@ -1,0 +1,30 @@
+name: Docker Image CICD
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20
+        
+      - name: Build Container
+        run: docker build . --file Dockerfile --tag ghcr.io/pubsub-server:latest
+        
+      - name: Log into GitHub Container Registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
+        
+      - name: Push Image to GitHub Container Registry
+        run: |
+          IMAGE_ID=ghcr.io/pubsub-server:latest
+          docker push $IMAGE_ID

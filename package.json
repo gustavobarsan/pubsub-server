@@ -1,0 +1,20 @@
+{
+  "name": "pubsub-server",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "tsx": "^4.19.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "ceo-client": "^1.0.0",
+    "ceo-server": "^1.0.0"
+  },
+  "scripts": {
+    "start": "npx tsx index.ts",
+    "pub": "npx tsx pub.ts",
+    "sub": "npx tsx sub.ts"
+  }
+}
