@@ -19,12 +19,12 @@ jobs:
           node-version: 20
         
       - name: Build Container
-        run: docker build . --file Dockerfile --tag ghcr.io/pubsub-server:latest
+        run: docker build . --file Dockerfile --tag ghcr.io/gustavobarsan/pubsub-server:latest
         
       - name: Log into GitHub Container Registry
         run: echo "${{ secrets.GHCR_TOKEN }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
         
       - name: Push Image to GitHub Container Registry
         run: |
-          IMAGE_ID=ghcr.io/pubsub-server:latest
+          IMAGE_ID=ghcr.io/gustavobarsan/pubsub-server:latest
           docker push $IMAGE_ID
