@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "ceo-client": "^1.0.0",
-    "ceo-server": "^1.0.5"
+    "ceo-server": "^1.0.6"
   },
   "scripts": {
     "start": "npx tsx index.ts",
