@@ -9,8 +9,8 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "ceo-client": "^1.0.0",
-    "ceo-server": "^1.0.6"
+    "ceo-client": "^1.0.4",
+    "ceo-server": "^1.0.7"
   },
   "scripts": {
     "start": "npx tsx index.ts",
